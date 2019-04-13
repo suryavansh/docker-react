@@ -1,0 +1,9 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t suyravansh/docker-react -f Dockerfile.dev .
+  
+script:
+  - docker run suyravansh/docker-react npm run test -- --coverage
